@@ -1,0 +1,67 @@
+public class EdgeWeightedGraph
+{
+  // number of vertices
+  private final int V;
+  // number of edges
+  private int E;
+  // adjacency lists
+  private Bag<Edge>[] adj;
+
+  // create an empty V-vertex graph
+  public EdgeWeightedGraph(int V)
+  {
+    this.V = V;
+    this.E = 0;
+    adj = (Bag<Edge>[]) new Bag[V];
+    for (int v = 0; v < V; v++) {
+      adj[v] = new Bag<Edge>();
+    }
+  }
+
+  // read graph from input stream
+  EdgeWeightedGraph(In in)
+
+  // number of vertices 
+  public int V()
+  {
+    return V;
+  }
+
+  // number of edges
+  public int E()
+  {
+    return E;
+  }
+
+  // add edge e to this graph
+  public void addEdge(Edge e)
+  {
+    int v = e.either(), w = e.other(v);
+    adj[v].add(e);
+    adj[w].add(e);
+    E++;
+  }
+
+  // edges incident to v
+  public Iterable<Edge> adj(int v)
+  {
+    return adj[v];
+  }
+
+  // all of this graph's edges
+  public Iterable<Edge> edges()
+  {
+    Bag<Edge> b = new Bag<Edge>();
+    for (int v = 0; v < V; v++) {
+      for (Edge e: adj[v]) {
+        if (e.other(v) > v) {
+          b.add(e);
+        }
+      }
+    }
+    return b;
+  }
+
+  // string representation
+  String toString()
+}

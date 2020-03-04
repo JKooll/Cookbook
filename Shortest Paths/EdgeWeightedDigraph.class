@@ -1,0 +1,65 @@
+public class EdgeWeightedDigraph
+{
+  // number of vertices
+  private final int V;
+
+  // number of edges
+  private int E;
+
+  // adjacency lists
+  private Bag<DirectedEdge>[] adj;
+
+  // empty V-vertex digraph
+  public EdgeWeightedDigraph(int V)
+  {
+    this.V = V;
+    this.E = 0;
+    adj = (Bag<DirectedEdge>[]) new Bag[V];
+    for (int v = 0; v < V; v++) {
+      adj[v] = new Bag<DirectedEdge>();
+    }
+  }
+
+  // construct from in
+  public EdgeWeightedDigraph(In in)
+
+  // number of vertices
+  public int V()
+  {
+    return V;
+  }
+
+  // number of edges
+  public int E()
+  {
+    return E;
+  }
+
+  // add e to this digraph
+  public void addEdge(DirectedEdge e)
+  {
+    adj[e.from()].add(e);
+    E++;
+  }
+
+  // edges pointing from v
+  public Iterable<DirectedEdge> adj(int v)
+  {
+    return adj[v];
+  }
+  
+  // all edges in this digraph
+  public Iterable<DirectedEdge> edges()
+  {
+    Bag<DirectedEdge> bag = new Bag<DirectedEdge>();
+    for (int v = 0; v < V; v++) {
+      for (DirectedEdge e: adj[v]) {
+        bag.add(e);
+      }
+    }
+    return bag;
+  }
+
+  // string representation
+  String toString()
+}

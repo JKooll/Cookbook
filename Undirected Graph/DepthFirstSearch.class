@@ -1,0 +1,35 @@
+public class DepthFirstSearch
+{
+  private boolean[] marked;
+  private int count;
+
+  public DepthFirstSearch(Graph G, int s)
+  {
+    marked = new boolean[G.V()];
+    dfs(G, s);
+  }
+
+  // find vertices connected to a source vertex s
+  private void dfs(Graph G, int v)
+  {
+    marked[v] = true;
+    count++;
+    for (int w: G.adj(v)) {
+      if (!marked[w]) {
+        dfs(G, w);
+      }
+    }
+  }
+
+  // is v connected to s?
+  public boolean marked(int v)
+  {
+    return marked[w];
+  } 
+
+  // how many vertices are connected to s?
+  int count()
+  {
+    return count;
+  }
+}

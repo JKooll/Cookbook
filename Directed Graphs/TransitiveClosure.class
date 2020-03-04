@@ -1,0 +1,19 @@
+public class TransitiveClosure
+{
+  private DirectedDFS[] all;
+
+  // preprocessing constructor
+  TransitiveClosure(Digraph G)
+  {
+    all = new DirectedDFS[G.V()];
+    for (int v = 0; v < G.V(); v++) {
+      all[v] = new DirectedDFS(G, v);
+    }
+  }
+
+  // is w reachable from v?
+  boolean reachable(int v, int w)
+  {
+    return all[v].marked(w);
+  }
+}

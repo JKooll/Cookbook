@@ -1,0 +1,51 @@
+public class BreadthFirstPaths
+{
+  // Is a shortest path to htis vertex known?
+  private boolean[] marked;
+  // last vertex on known path to this vertex
+  private int[] edgeTo;
+  // source
+  private final int s;
+
+  public BreadthFirstPaths(Graph G, int s)
+  {
+    marked = new boolean[G.V()];
+    edgeTo = new int[G.V()];
+    this.s = s;
+    bfs(G, s);
+  }
+
+  private void bfs(Graph G, int s)
+  {
+    Queue<Inetger> queue = new Queue<Integer>();
+    marked[s] = true;
+    queue.enqueue(s);
+    while (!q.isEmpty()) {
+      int v = queue.dequeue();
+      for (int w: G.adj(v)) {
+        edgeTo[w] = v;
+        marked[w] = true;
+        queue.enqueue(w);
+      }
+    }
+  }
+
+  public boolean hasPathTo(w)
+  {
+    return marked[w];
+  }
+
+  // path from s to v; null if no such path
+  public Iterable<Integer> pathTo(int v)
+  {
+    if (!hasPathTo(v)) {
+      return null;
+    }
+    Stack<Integer> path = new Stack<Integer>();
+    for (int x = v; x != s; x = edgeTo[x]) {
+      path.push(x);
+    }
+    path.push(s);
+    return path;
+  }
+}

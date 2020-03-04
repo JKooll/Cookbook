@@ -1,0 +1,61 @@
+public class Digraph
+{
+  private final int V;
+  private int E;
+  private Bag<Integer>[] adj;
+
+  // create a V-vertex digraph with no edges
+  public Digraph(int V)
+  {
+    this.V = V;
+    this.E = 0;
+    adj = (Bag<Integer>[]) new Bag[V];
+    for (int v = 0; v < V; v++)
+    {
+      adj[v] = new Bag<Integer>();
+    }
+  }
+
+  // read a digraph from input stream in
+  Digraph(In in)
+
+  // number of vertices
+  public int V()
+  {
+    return V;
+  }
+
+  // number of edges
+  public int E()
+  {
+    return E;
+  }
+
+  // add edge v->w to this digraph
+  public void addEdge(int v, int w)
+  {
+    adj[v].add(w);
+    E++;
+  }
+
+  // vertices connected to v by edges pointing from v
+  public Interable<Integer> adj(int v)
+  {
+    return adj[v];
+  }
+
+  // reverse of this digraph
+  public Digraph reverse()
+  {
+    Digraph R = new Digraph(V);
+    for (int v = 0; v < V; v++) {
+      for (int w: adj[v]) {
+        R.addEdge(w, v);
+      }
+    }
+    return R;
+  }
+
+  // string representation
+  String toString()
+}

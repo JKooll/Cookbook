@@ -1,0 +1,91 @@
+/**
+ * 从图中某个节点开始探索，每次选取权重最小的边作为下一个探索的边
+ */
+public class LazyPrimMST
+{
+  // MST vertices
+  private boolean[] marked;
+  // MST edges
+  private Queue<Edge> mst;
+  // crossing (and ineligible) edges
+  private MinPQ<Edge> pq;
+
+  // constructor
+  public LazyPrimMST(EdgeWeightedGraph G)
+  {
+    pq = new MinPQ<Edge>();
+    marked = new boolean[G.V()];
+    mst = new Queue<Edge>();
+
+    // assumes G is connected 
+    visit(G, 0);
+    while (!pq.isEmpty()) {
+      // Get lowest-weight edge from pq.
+      Edge e = pq.delMin();
+      int v = e.either(), w = e.other(v);
+      // Skip if ineligible.
+      if (marked[v] && marked[w]) {
+        continue;
+      }
+      mst.enqueue(e);
+      if (!marked[v]) {
+        visit(G, v);
+      }
+      if (!marked[w]) {
+        visit(G, w);
+      }
+    }
+  }
+
+  private void visit(EdgeWeightedGraph G, int v)
+  {
+    // Mark v and add to pq all edges from v to unmarked vertices.
+    marked[v] = true;
+    for (Edge e: G.adj(v)) {
+      if (!marked[e.other(v)]) {
+        pq.insert(e);
+      }
+    }
+  }
+
+  // all of the MST edges
+  public Iterable<Edge> edges()
+  {
+    return mst;
+  }
+
+  // weight of MST
+  double weight()
+
+  public static void main(String[] args)
+  {
+    /**
+      8 16
+      4 5 .35
+      4 7 .37
+      5 7 .28
+      0 7 .16
+      1 5 .32
+      0 4 .38
+      2 3 .17
+      1 7 .19
+      0 2 .26
+      1 2 .36
+      1 3 .29
+      2 7 .34
+      6 2 .40
+      3 6 .52
+      6 0 .58
+      6 4 .93
+    */
+    In in = new In(args[0]);
+    EdgeWeightedGraph G;
+    G = new EdgeWeightedGraph(in);
+
+    MST mst = new MST(G);
+    for (Edge e: mst.edges()) {
+      StdOut.println(e);
+    }
+    StdOut.println(mst.weight());
+  }
+}

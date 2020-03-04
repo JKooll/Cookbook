@@ -1,0 +1,25 @@
+/**
+ * Critical path method for parallel precedence-constrained job scheduling
+ * 
+ * % more jobsPC.txt
+ * 10
+ * 41.0 1 7 9
+ * 51.0 2
+ * 50.0
+ * 6.0
+ * 38.0
+ * 45.0
+ * 21.0 3 8
+ * 32.0 3 8
+ * 32.0 2
+ * 29.0 4 6
+ */
+
+public class CPM
+{
+  public static void main(String[] args)
+  {
+    int N = StdIn.readInt();
+  }
+}
+

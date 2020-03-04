@@ -1,0 +1,33 @@
+// 每次从保存所有边的最小队列里获取最小的边，连接这条边的两个节点
+public class KruskalMST
+{
+  private Queue<Edge> mst;
+
+  public KruskalMST(EdgeWeightedGraph G)
+  {
+    mst = new Queue<Edge>();
+    MinPQ<Edge> pq = new MinPQ<Edge>(G.edges());
+    UF uf = new UF(G.V());
+
+    while (!pq.isEmpty() && mst.size() < G.V() - 1) {
+      // Get min weight edge on pq and its vertices.
+      Edge e = pq.delMin();
+      int v = e.either(), w = e.other();
+      // Ignore ineligible edges.
+      if (uf.connected(v, w)) {
+        continue;
+      }
+      // Merge components.
+      uf.union(v, w);
+      // Add edge to mst.
+      mst.enqueue(e);
+    }
+  }
+
+  public Iterable<Edge> edges()
+  {
+    return mst;
+  }
+
+  public double weight()
+}
