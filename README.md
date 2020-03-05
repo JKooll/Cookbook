@@ -1,11 +1,2 @@
-# Code Segment
-代码片段库
-
-## [Calendar lang:php](https://github.com/JKooll/code-segment/tree/master/Calendar)
-输出一个日历，支持html text格式，html格式输出html类型的数据，text输出纯文本日历
-
-## [Generate a Random String lang:php](https://github.com/JKooll/code-segment/tree/master/Generate%20a%20Random%20String)
-生成随机字符串
-
-## [Sphere Distance lang:php](https://github.com/JKooll/code-segment/tree/master/Sphere%20Distance)
-计算地球上两个点的距离
+# Cookbook
+这个仓库存放一些实用的代码片段。相关的代码片段放在同一个目录中，打开相关目录即可查看详细的使用方法。
