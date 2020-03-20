@@ -10,7 +10,7 @@ public class StringST<Value>
   }
 
   // create a symbol table
-  StringST()
+  StringST() {}
 
   // put key-value pair in to the table (remove key if value is null)
   public void put(String key, Value val)
@@ -88,10 +88,10 @@ public class StringST<Value>
   }
 
   // is there a value paired with key?
-  boolean contains(String key)
+  boolean contains(String key) {}
 
   // is the table empty?
-  boolean isEmpty()
+  boolean isEmpty() {}
 
   // the longest key that is a prefix of s
   public String longestPrefixOf(String s)

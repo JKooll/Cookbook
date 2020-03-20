@@ -1,0 +1,35 @@
+public class Particle
+{
+  // create a new random particle in unit square
+  Particle()
+
+  // create a particle with the given position, velocity, radius, and mass
+  Particle(double rx, double, ry, double vx, double vy, double s, double mass)
+
+  // draw the particle
+  void draw()
+
+  // change position to reflect passage of time dt
+  void move(double dt)
+
+  // number of collisions involving this particle
+  int count()
+
+  // time until this particle hits particle b
+  double timeToHit(Particle b)
+
+  // time until this particle hits a horizontal wall
+  double timeToHitHorizontalWall()
+
+  // time until this particle hits a vertical wall
+  double timeToHitVerticaltWall()
+
+  // change particle volicities to reflect collision
+  void bounceOff(Particle b)
+
+  // change velocity to reflect hitting horizontal wall
+  void bounceOffHorizontalWall()
+
+  // change velocity to reflect hitting vetical wall
+  void bounceOffVerticalWall()
+}

@@ -1,0 +1,16 @@
+public class BinaryStdOut
+{
+  // write the specified bit
+  void write(boolean b)
+
+  // write the specified 8-bit char
+  void write(char c)
+
+  // write the r (between 1 and 16) least significant bits of the specified char
+  void write(char c, int r)
+
+  // [similar methods for byte (8 bits); short (16 bits); int (32 bits); long and double (64 bits)]
+
+  // close the bitstream
+  void close()
+}

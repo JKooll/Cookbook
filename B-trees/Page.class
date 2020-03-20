@@ -1,0 +1,31 @@
+public class Page<Key>
+{
+  // create and open a page
+  Page(boolean bottom)
+
+  // close a page
+  void close()
+
+  // put key into the (external) page
+
+  // open p and put an entry into this (internal) page that associates the smallest key in p with p
+  void add(Page p)
+
+  // is this page external?
+  boolean isExternal()
+
+  // is key in the page?
+  boolean contains(Key key)
+
+  // the subtree that could contain the key
+  Page next(Key key)
+
+  // has the page overflowed?
+  boolean isFull()
+
+  // move the highest-ranking half of the keys in the page to a new page
+  Page split()
+
+  // interator for the keys on the page
+  Interable<Key> keys()
+}

@@ -1,0 +1,19 @@
+public class BinaryStdIn
+{
+  // read 1 bit of data and return as a boolean value
+  boolean readBoolean()
+
+  // read 8 bits of data and return as a char value
+  char readChar()
+
+  // read r (between 1 and 16) bits of data
+  char readChat(int r)
+
+  // [similar methods for byte (8 bits); short (16 bits); int (32 bits); long and double (64 bits)]
+
+  // is the bitstream empty?
+  boolean isEmpty()
+
+  // close the bitstream
+  void close()
+}
