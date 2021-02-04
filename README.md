@@ -1,2 +1,2 @@
 # Cookbook
-这个仓库存放一些实用的代码片段。相关的代码片段放在同一个目录中，打开相关目录即可查看详细的使用方法。
+This repository stores some useful code snippets. The relevant code snippets are placed in the same directory, and you can view the detailed usage by opening the relevant directory.
